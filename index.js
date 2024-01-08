@@ -1,42 +1,50 @@
 #!/usr/bin/env node
 const yargs = require("yargs");
+const services = require("./services");
 
 const { hideBin } = require("yargs/helpers");
 
 yargs(hideBin(process.argv))
-  .command(
-    "add",
-    "add new path to the list",
-    (yargs) => {
-      console.log("yargs", yargs);
-    },
-    (argv) => {
-      const path = argv;
-      console.log("path", path);
-    }
-  )
+  .scriptName("tpm")
+  .usage("$0 <cmd> [args]")
   .command(
     "list",
     "list all paths",
-    (yargs) => {
-      // console.log("yargs", yargs);
-    },
+    () => {},
+    () => services.logPaths()
+  )
+  .command(
+    "add [pathname] [destination]",
+    "add new path to the list",
+    () => {},
+    (argv) => services.addPath(argv.pathname, argv.destination)
+  )
+
+  .command(
+    "change <pathname> <destination>",
+    "change path",
+    () => {},
+    (argv) => services.changePath(argv.pathname, argv.destination)
+  )
+  .command(
+    "remove <path>",
+    "remove path from the list",
+    () => {},
     (argv) => {
-      const path = argv;
-      console.log("/");
+      services.removePath(argv.path);
     }
   )
-  // .command(
-  //   "l <path>",
-  //   "go to path",
-  //   (yargs) => {
-  //     console.log("yargs", yargs);
-  //   },
-  //   (argv) => {
-  //     const path = argv;
-  //     console.log("path", argv.path);
-  //   }
-  // )
-
+  .command(
+    "remove all",
+    "remove all paths",
+    () => {},
+    () => services.removeAllPaths()
+  )
+  .command(
+    "go <path>",
+    "go to destination",
+    () => {},
+    (argv) => console.log(services.getAllPaths()[argv.path])
+  )
   .demandCommand()
   .parse();

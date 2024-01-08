@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
-
-path=$(node /home/user/Desktop/nodejs/terminal-path-manager/index.js $1)
+path=$(node /home/user/Desktop/nodejs/terminal-path-manager/index.js $@)
 
 if [[ $path = /* ]]
     then 
         cd $path
     else
-        echo $path
+        echo "$path"
 fi
-
 $SHELL
