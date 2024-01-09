@@ -49,7 +49,7 @@ npm install
 3\. Make a link globally to this command:
 
 ```sh
-  npm link
+npm link
 ```
 
 #
@@ -57,7 +57,7 @@ npm install
 ### Usage
 
 ```sh
-  tpm <command> [options]
+tpm <command> [options]
 ```
 
 #### Commands:
