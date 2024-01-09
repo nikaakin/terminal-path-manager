@@ -57,7 +57,7 @@ npm link
 ### Usage
 
 ```sh
-tpm <command> [options]
+tpm <command> [arguments]
 ```
 
 #### Commands:
