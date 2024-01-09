@@ -62,7 +62,7 @@ tpm <command> [arguments]
 
 #### Registering path correctly:
 
-- ##### _Every registered path should start with '/' (from root)!!_
+- ##### _Every registered path should start with / (from root)!!_
 
 #### Commands:
 
