@@ -60,6 +60,8 @@ npm link
 tpm <command> [arguments]
 ```
 
+<h4 style="color:orange">Every registered path should start with '/' (from root)</h4>
+
 #### Commands:
 
 - `add` - Add new path to your terminal
