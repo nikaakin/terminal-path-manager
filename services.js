@@ -1,8 +1,10 @@
 const fs = require("node:fs");
 
-const getAllPaths = () => {
-  return JSON.parse(fs.readFileSync("./paths.json", "utf8"));
-};
+const getAllPaths = () =>
+  JSON.parse(fs.readFileSync(__dirname + "/paths.json", "utf8"));
+
+const writePaths = (paths) =>
+  fs.writeFileSync(__dirname + "/paths.json", JSON.stringify(paths));
 
 const logPaths = () => {
   const paths = getAllPaths();
@@ -23,7 +25,7 @@ const addPath = (pathname, destincation) => {
 
   paths[pathname] = destincation;
 
-  fs.writeFileSync("./paths.json", JSON.stringify(paths));
+  writePaths(paths);
   console.log("Path added successfully");
 };
 
@@ -37,7 +39,7 @@ const changePath = (pathname, destincation) => {
 
   paths[pathname] = destincation;
 
-  fs.writeFileSync("./paths.json", JSON.stringify(paths));
+  writePaths(paths);
   console.log("Path changed successfully");
 };
 
@@ -51,12 +53,12 @@ const removePath = (pathname) => {
 
   delete paths[pathname];
 
-  fs.writeFileSync("./paths.json", JSON.stringify(paths));
+  writePaths(paths);
   console.log("Path removed successfully");
 };
 
 const removeAllPaths = () => {
-  fs.writeFileSync("./paths.json", JSON.stringify({}));
+  writePaths({});
   console.log("All paths removed successfully");
 };
 
