@@ -46,7 +46,15 @@ git git@github.com:nikaakin/terminal-path-manager.git
 npm install
 ```
 
-3\. Make a link globally to this command:
+3\. Update path to the node index.js file in change_dir.sh file:
+
+```sh
+path=$(node /home/user/Desktop/nodejs/terminal-path-manager/index.js $@)
+```
+
+- instead of `/home/user/Desktop/nodejs/terminal-path-manager/index.js` you should put your path to the index.js file
+
+4\. Make a link globally to this command:
 
 ```sh
 npm link
