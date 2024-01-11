@@ -8,7 +8,7 @@ yargs(hideBin(process.argv))
   .scriptName("tpm")
   .usage("$0 <cmd> [args]")
   .command(
-    "list",
+    "ls",
     "list all paths",
     () => {},
     () => services.logPaths()
@@ -41,8 +41,8 @@ yargs(hideBin(process.argv))
     () => services.removeAllPaths()
   )
   .command(
-    "go <path>",
-    "go to destination",
+    "cd <path>",
+    "cd to destination",
     () => {},
     (argv) => console.log(services.getAllPaths()[argv.path])
   )
