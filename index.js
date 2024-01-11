@@ -44,7 +44,7 @@ yargs(hideBin(process.argv))
     "cd <path>",
     "cd to destination",
     () => {},
-    (argv) => console.log(services.getAllPaths()[argv.path])
+    (argv) => console.log(services.getAllPaths()[argv.path] || "Path not found")
   )
   .demandCommand()
   .parse();
