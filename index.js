@@ -35,12 +35,6 @@ yargs(hideBin(process.argv))
     }
   )
   .command(
-    "remove all",
-    "remove all paths",
-    () => {},
-    () => services.removeAllPaths()
-  )
-  .command(
     "cd <path>",
     "cd to destination",
     () => {},

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-path=$(node /home/user/Desktop/nodejs/terminal-path-manager/index.js $@)
+path=$(node /home/nika/Desktop/local-singular/terminal-path-manager/index.js $@)
 
 if [[ $path = /* ]]
     then 

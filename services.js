@@ -51,15 +51,16 @@ const removePath = (pathname) => {
     return;
   }
 
+  if (pathname === "all") {
+    writePaths({});
+    console.log("All paths removed successfully");
+    return;
+  }
+
   delete paths[pathname];
 
   writePaths(paths);
   console.log("Path removed successfully");
-};
-
-const removeAllPaths = () => {
-  writePaths({});
-  console.log("All paths removed successfully");
 };
 
 module.exports = {
