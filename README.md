@@ -57,7 +57,7 @@ path=$(node /home/user/Desktop/nodejs/terminal-path-manager/index.js $@)
 4\. Make a link globally to this command:
 
 ```sh
-npm link
+sudo npm link
 ```
 
 #
