@@ -4,7 +4,7 @@
 
 ---
 
-Terminal path manager `tmp` is a tool that helps you to manage your terminal paths. It is a simple tool that allows you to add, change, remove, and list your paths. After adding the path you can use it in your terminal by typing `tpm cd <path-name>`.
+Terminal path manager `tmp` is a tool that helps you to manage your terminal paths. It is a simple tool that allows you to add, change, remove, and list your paths. After adding the path you can use it in your terminal by typing `tpm cd <path-name>` or search the desired path with fuzzy finder `tpm search`.
 
 #
 
@@ -30,6 +30,8 @@ Terminal path manager `tmp` is a tool that helps you to manage your terminal pat
 
 - [yargs](https://www.npmjs.com/package/yargs) - Yargs helps you build interactive command line tools, by parsing arguments and generating an elegant user interface.
 
+- [fuzzyfinder](https://github.com/junegunn/fzf) - It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.
+
 #
 
 ### Getting Started
@@ -40,21 +42,33 @@ Terminal path manager `tmp` is a tool that helps you to manage your terminal pat
 git git@github.com:nikaakin/terminal-path-manager.git
 ```
 
-2\. Install dependencies
+2\. Install dependencies:
 
 ```sh
 npm install
 ```
 
-3\. Update path to the node index.js file in change_dir.sh file:
+3\. install fuzzy finder if you don't have it yet. See instructions in readme:
+
+- https://github.com/junegunn/fzf.
+
+4\. Update path to the node index.js file in change_dir.sh file:
 
 ```sh
 path=$(node /home/user/Desktop/nodejs/terminal-path-manager/index.js $@)
 ```
 
-- instead of `/home/user/Desktop/nodejs/terminal-path-manager/index.js` you should put your path to the index.js file
+- instead of `/home/user/Desktop/nodejs/terminal-path-manager/index.js` you should put your path to the index.js file.
 
-4\. Make a link globally to this command:
+5\. if you only want to search through the paths you have added with cli remove `$(find ~/Desktop -mindepth 1 -maxdepth 2 -type d)` this or adjust find script for your needs:
+
+```sh
+if [[$1 = "search"]]
+  then path=$(printf "$path\n$(find ~/Desktop -mindepth 1 -maxdepth 2 -type d)" | fzf)
+fi
+```
+
+6\. Make a link globally to this command:
 
 ```sh
 sudo npm link
@@ -81,6 +95,7 @@ tpm <command> [arguments]
 - `help` - Show help
 - `remove all` - Remove all paths
 - `cd` - cd to path
+- `search` - Search path with fuzzy finder
 
 #### Examples:
 
@@ -91,3 +106,4 @@ tpm <command> [arguments]
 - `tpm help` - Show help
 - `tpm remove all` - Remove all paths
 - `tpm cd <path-name>` - cd to path
+- `tpm search` - Search path with fuzzy finder
