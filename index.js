@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const yargs = require("yargs");
 const services = require("./services");
-
 const { hideBin } = require("yargs/helpers");
 
 yargs(hideBin(process.argv))

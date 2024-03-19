@@ -69,5 +69,4 @@ module.exports = {
   addPath,
   changePath,
   removePath,
-  removeAllPaths,
 };
