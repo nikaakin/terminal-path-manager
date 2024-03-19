@@ -4,7 +4,7 @@
 
 ---
 
-Terminal path manager `tmp` is a tool that helps you to manage your terminal paths. It is a simple tool that allows you to add, change, remove, and list your paths. After adding the path you can use it in your terminal by typing `tpm cd <path-name>` or search the desired path with fuzzy finder `tpm search`.
+Terminal path manager `tpm` is a tool that helps you to manage your terminal paths. It is a simple tool that allows you to add, change, remove, and list your paths. After adding the path you can use it in your terminal by typing `tpm cd <path-name>` or search the desired path with fuzzy finder `tpm search`.
 
 #
 
@@ -52,7 +52,7 @@ npm install
 
 - https://github.com/junegunn/fzf.
 
-4\. Update path to the node index.js file in change_dir.sh file:
+4\. Update path to the node index.js file in `change_dir.sh` file:
 
 ```sh
 path=$(node /home/user/Desktop/nodejs/terminal-path-manager/index.js $@)
@@ -60,7 +60,11 @@ path=$(node /home/user/Desktop/nodejs/terminal-path-manager/index.js $@)
 
 - instead of `/home/user/Desktop/nodejs/terminal-path-manager/index.js` you should put your path to the index.js file.
 
-5\. if you only want to search through the paths you have added with cli remove `$(find ~/Desktop -mindepth 1 -maxdepth 2 -type d)` this or adjust find script for your needs:
+5\. Update `change_dir.sh` paths output for fuzzy finder. If you only want to search through the paths you have added with cli then remove:
+
+- `$(find ~/Desktop -mindepth 1 -maxdepth 2 -type d)`
+
+Or adjust `find` script for your needs:
 
 ```sh
 if [[$1 = "search"]]
