@@ -6,6 +6,9 @@ const getAllPaths = () =>
 const writePaths = (paths) =>
   fs.writeFileSync(__dirname + "/paths.json", JSON.stringify(paths));
 
+const getFullPaths = () =>
+  Object.values(getAllPaths()).forEach((path) => console.log(path));
+
 const logPaths = () => {
   const paths = getAllPaths();
   console.log("pathanme -> destination");
@@ -69,4 +72,5 @@ module.exports = {
   addPath,
   changePath,
   removePath,
+  getFullPaths,
 };

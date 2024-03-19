@@ -39,5 +39,11 @@ yargs(hideBin(process.argv))
     () => {},
     (argv) => console.log(services.getAllPaths()[argv.path] || "Path not found")
   )
+  .command(
+    "search",
+    "using fuzzy search to finding path from the list and after that cd to destination",
+    () => {},
+    () => services.getFullPaths()
+  )
   .demandCommand()
   .parse();
