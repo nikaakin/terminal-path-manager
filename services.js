@@ -49,14 +49,14 @@ const changePath = (pathname, destincation) => {
 const removePath = (pathname) => {
   const paths = getAllPaths();
 
-  if (!paths[pathname]) {
-    console.log("Path does not exist, try tpm add <name> <path>");
-    return;
-  }
-
   if (pathname === "all") {
     writePaths({});
     console.log("All paths removed successfully");
+    return;
+  }
+
+  if (!paths[pathname]) {
+    console.log("Path does not exist, try tpm add <name> <path>");
     return;
   }
 
