@@ -39,7 +39,7 @@ Terminal path manager `tpm` is a tool that helps you to manage your terminal pat
 1\. First of all you need to clone repository from github:
 
 ```sh
-git git@github.com:nikaakin/terminal-path-manager.git
+git clone git@github.com:nikaakin/terminal-path-manager.git
 ```
 
 2\. Install dependencies:
