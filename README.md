@@ -52,7 +52,7 @@ npm install
 
 - https://github.com/junegunn/fzf.
 
-4\. Update path to the node index.js file in `change_dir.sh` file:
+4\. Update path to the node index.js file in `index.sh` file:
 
 ```sh
 path=$(node /home/user/Desktop/nodejs/terminal-path-manager/index.js $@)
@@ -60,7 +60,7 @@ path=$(node /home/user/Desktop/nodejs/terminal-path-manager/index.js $@)
 
 - instead of `/home/user/Desktop/nodejs/terminal-path-manager/index.js` you should put your path to the index.js file.
 
-5\. Update `change_dir.sh` paths output for fuzzy finder. If you only want to search through the paths you have added with cli then remove:
+5\. Update `index.sh` paths output for fuzzy finder. If you only want to search through the paths you have added with cli then remove:
 
 - `$(find ~/Desktop -mindepth 1 -maxdepth 2 -type d)`
 
