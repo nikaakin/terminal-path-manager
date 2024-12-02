@@ -40,10 +40,26 @@ yargs(hideBin(process.argv))
     (argv) => console.log(services.getAllPaths()[argv.path] || "Path not found")
   )
   .command(
-    "search",
+    ["search", "s"],
     "using fuzzy search to finding path from the list and after that cd to destination",
     () => {},
-    () => services.getFullPaths()
+    () => {
+      // this is here because index.sh is caching 'search' and 's' and handling them there
+      // if I dont have this here, terminal will have log that 'search' is not a command or 's' is not a command
+    }
   )
   .demandCommand()
+  // .command("--get-completions [cmd] [current]", false, {}, async (argv) => {
+  //   const completions = await services.generateCompletions(
+  //     argv.current || "",
+  //     argv
+  //   );
+  //   console.log(completions.join(" "));
+  //   process.exit(0);
+  // })
+  // // Command to set up completion
+  // .command("setup-completion", "Set up command completion", {}, async () => {
+  //   await services.setupCompletion();
+  // })
+  .strict()
   .parse();
