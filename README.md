@@ -52,15 +52,7 @@ npm install
 
 - https://github.com/junegunn/fzf.
 
-4\. Update path to the node index.js file in `index.sh` file:
-
-```sh
-path=$(node /home/user/Desktop/nodejs/terminal-path-manager/index.js $@)
-```
-
-- instead of `/home/user/Desktop/nodejs/terminal-path-manager/index.js` you should put your path to the index.js file.
-
-5\. Update `index.sh` paths output for fuzzy finder. If you only want to search through the paths you have added with cli then remove:
+4\. Update `index.sh` paths output for fuzzy finder. If you only want to search through the paths you have added with cli then remove:
 
 - `$(find ~/Desktop -mindepth 1 -maxdepth 2 -type d)`
 
@@ -72,10 +64,10 @@ if [[$1 = "search"]]
 fi
 ```
 
-6\. Make a link globally to this command:
+5\. Make a link globally to this command:
 
 ```sh
-sudo npm link
+npm link
 ```
 
 #
@@ -99,7 +91,8 @@ tpm <command> [arguments]
 - `help` - Show help
 - `remove all` - Remove all paths
 - `cd` - cd to path
-- `search` - Search path with fuzzy finder
+- `search` or `s` - Search path with fuzzy finder
+
 
 #### Examples:
 
@@ -110,4 +103,4 @@ tpm <command> [arguments]
 - `tpm help` - Show help
 - `tpm remove all` - Remove all paths
 - `tpm cd <path-name>` - cd to path
-- `tpm search` - Search path with fuzzy finder
+- `tpm search` or `tpm s` - Search path with fuzzy finder
